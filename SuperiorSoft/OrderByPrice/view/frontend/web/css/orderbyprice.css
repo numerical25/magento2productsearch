@@ -1,0 +1,7 @@
+#orderByForm .col {
+    float: left;
+}
+
+#orderByForm select {
+    width: auto;
+}

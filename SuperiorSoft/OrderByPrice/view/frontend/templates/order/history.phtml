@@ -1,0 +1,26 @@
+
+<div data-bind="scope: 'orderbyprice'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "orderbyprice": {
+                            "component": "SuperiorSoft_OrderByPrice/js/orderbyprice",
+                            "template" : "SuperiorSoft_OrderByPrice/orderbyprice"
+                        }
+                    }
+                }
+            }
+        }
+</script>
+<script type="text/javascript">
+    require(['jquery'], function($){
+        $(document).ready(function(){
+            $('body').trigger('processStart');
+        });
+    });
+</script>

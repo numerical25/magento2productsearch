@@ -1,0 +1,47 @@
+<form id="orderByForm" data-mage-init='{"validation":{}}'>
+    <div class="col">
+        Low Price
+        <input data-bind="value: lowPrice" class="input-text required" name="lowPrice" id="lowPrice" data-validate="{required:true}" />
+    </div>
+    <div class="col">
+        High Price
+        <input data-bind="value: highPrice" class="input-text required" name="highPrice" id="highPrice" data-validate="{required:true}" />
+    </div>
+    <div class="col">
+        <span>Sort By</span>
+        <select data-bind="value: sortPrice" class="input-select">
+            <option value="asc">ASC</option>
+            <option value="desc">DESC</option>
+        </select>
+    </div>
+    <button data-bind="click: filter">Search</button>
+</form>
+
+<div class="table-wrapper orders-history">
+    <table class="data table table-order-items history" id="my-orders-table">
+        <caption class="table-caption"><?php /* @escapeNotVerified */ echo __('Orders') ?></caption>
+        <thead>
+        <tr>
+            <th scope="col" class="col id">Image</th>
+            <th scope="col" class="col date">SKU</th>
+            <th scope="col" class="col shipping">Name</th>
+            <th scope="col" class="col total">QTY</th>
+            <th scope="col" class="col status">Price</th>
+            <th scope="col" class="col actions">&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody data-bind="foreach: orders">
+            <tr>
+                <td> <img width="30x" height="30px" data-bind="attr:{src: full_image_url}" />  </td>
+                <td data-bind="text: sku"></td>
+                <td><span data-bind="text: name"></span></td>
+                <td data-bind="text: qty"></td>
+                <td data-bind="text: price"></td>
+                <td><a target="_blank" data-bind="attr:{href:full_product_url}">View</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div data-bind="if: errorMessage">
+    <div class="message info empty"><span data-bind="text: errorMessage"></span></div>
+</div>
